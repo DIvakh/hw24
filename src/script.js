@@ -1,10 +1,10 @@
 function debounce(fn, timer) {
     let timeout;
 
-    return function () {
+    return function (...args) {
         clearTimeout(timeout);
         return new Promise(resolve => {
-            timeout = setTimeout(() => resolve(fn()), timer);
+            timeout = setTimeout(() => resolve(fn(...args)), timer);
         });
     };
 }
